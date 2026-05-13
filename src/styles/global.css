@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+    --color-primary: #000000;
+    --color-secondary: #FFFFFF;
+}
+
 html{
     font-family: var(--font-poppins);
+    color: var(--color-primary);
 }

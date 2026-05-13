@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+import ProjectCategoryButton from "../components/ProjectCategoryButton.astro";
+
+let buttons = [
+  {
+    icon: "mdi:controller",
+    buttonText: "Games and Interactives",
+    link: "/projects/interactives",
+  },
+  {
+    icon: "mdi:checkbox-intermediate-variant",
+    buttonText: "Interface Designs",
+    link: "",
+  },
+  { icon: "mdi:drawing", buttonText: "Graphic Designs", link: "" },
+  { icon: "mdi:art", buttonText: "Doodles and Sketches", link: "" },
+];
+---
+
+<div class="flex flex-col m-auto">
+  <div class="flex items-center-safe justify-center h-svh bg-primary">
+    <div class="flex flex-row gap-4 group">
+      <div class="flex flex-col items-left gap-2">
+        {
+          buttons.map((button, index) => (
+            <ProjectCategoryButton
+              icon={button.icon}
+              buttonText={button.buttonText}
+              link={button.link}
+              index={index}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const previewVideo = document.querySelector("#preview") as HTMLVideoElement;
+    const buttons = document.querySelectorAll("[data-video]");
+
+    buttons.forEach((button) => {
+      button.addEventListener("mouseenter", () => {
+        previewVideo.src = button.getAttribute("data-video") as string;
+        previewVideo.play();
+      });
+    });
+  </script>
+</div>

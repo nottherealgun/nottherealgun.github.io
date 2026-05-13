@@ -1,0 +1,63 @@
+---
+import '../../styles/global.css';
+import NavLayout from '../../layouts/NavLayout.astro';
+import InteractiveEntry from'../../components/InteractiveEntry.astro';
+
+const entryData = [
+    {
+        "title" : "Leaves in a Garden",
+        "description" : "Protect your potted plants and trade resources as a full-time gardener! An entry for Thailand Summer Jam 2026"
+    },
+    {
+        "title" : "Swapstack",
+        "description" : "Cute math game where you combine little animals and see numbers increase. Perfect for kids!"
+    },
+    {
+        "title" : "Project Rahu",
+        "description" : "In the year 22XX, as Earth neared collapse, nations turned to space in a desperate race for survival. Fates were forever changed when a crew of astro-biologists embarked on a mission upon an alien asteroid."
+    },
+    {
+        "title" : "Honor & Fantasy: Heroes",
+        "description" : "The kingdom is at war! As a Hero, cast spells, support allies, and summon troops to turn the tide in a three-lane clash against the enemy. Destroy their base before they destroys yours!"
+    },
+    {
+        "title" : "Tad Bit",
+        "description" : "You are a cursed prince trapped in the form of a frog. Your only hope for breaking the curse lies in ascending through dangerous levels, each one more difficult than the last."
+    },
+    {
+        "title" : "Burbur\'s Blimp",
+        "description" : "Burbur is a Pilot. Burbur pilots a Blimp. He tries to collect fruits called Burbur Fruits. Help Burbur repair his rocket through trading, collecting fruits and more!"
+    },
+    {
+        "title" : "Nelly\'s Supply Store",
+        "description" : "A chill and simple game where you manage a store on a beach. Your job is to help Nelly sell the items in her shop over the course of the summer."
+    },
+    {
+        "title" : "Skywars",
+        "description" : "A roguelike 2.5D game set in Mahidol University International College. It focuses on gamified exaggerations of the daily lives of Creative Technology Major students and the \"academic anarchy\" within the campus."
+    },
+    {
+        "title" : "Guardians & Corruptors",
+        "description" : "Guardians must vanquish all five towers behind enemy lines, while Corruptors aim to reach the land behind the Holy Protection."
+    }
+]
+---
+
+<NavLayout>
+    <div class="flex flex-col pt-30">
+        <div class="mx-auto w-[80%] lg:w-[90%] max-w-[40em]">
+            <div class="bg-primary text-secondary px-4 pt-4 text-4xl rounded-tr-2xl lg:rounded-tr-4xl">
+                <h1 class="relative top-2">Games</h1>
+            </div>
+            <div id="entry-container" class="flex flex-col">
+                {entryData.map((entry, index) => (
+                    <InteractiveEntry
+                        title={entry.title}
+                        description={entry.description}
+                        index={index}
+                    />
+                ))}
+            </div>
+        </div>
+    </div>
+</NavLayout>
