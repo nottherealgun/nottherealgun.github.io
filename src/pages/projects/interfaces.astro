@@ -13,12 +13,13 @@ import json from "../../assets/projects/interfaces.json";
       <Header title="Mobile Designs" icon="mdi:mobile-phone-text" />
       <div class="flex flex-col py-4 gap-4 lg:grid lg:grid-cols-3">
         {
-          json.mobile.map((entry) => (
+          json.mobile.map((entry, index) => (
             <Entry
               title={entry.title}
               link={entry.link}
               datetime={entry.datetime}
               tags={entry.tags}
+              index={index}
             />
           ))
         }
@@ -26,12 +27,13 @@ import json from "../../assets/projects/interfaces.json";
       <Header title="Desktop Designs" icon="mdi:computer" />
       <div class="flex flex-col py-4 gap-4 lg:grid lg:grid-cols-3">
         {
-          json.desktop.map((entry) => (
+          json.desktop.map((entry, index) => (
             <Entry
               title={entry.title}
               link={entry.link}
               datetime={entry.datetime}
               tags={entry.tags}
+              index={index}
             />
           ))
         }

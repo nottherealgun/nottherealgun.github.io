@@ -6,9 +6,10 @@ interface Props {
   link: string;
   datetime: string;
   tags?: string[];
+  index: number;
 }
 
-const { title, link, datetime, tags } = Astro.props;
+const { title, link, datetime, tags, index } = Astro.props;
 
 function getMonthList(
   locales?: string | string[],
@@ -31,7 +32,10 @@ let month = getMonthList("en")[date.getMonth()];
 let dateStr = month + ", " + date.getFullYear();
 ---
 
-<div class="flex flex-col shadow-xl h-fit">
+<div
+  class="entry flex flex-col shadow-xl h-fit"
+  style={`animation-delay: ${(index + 1.0) * 0.1}s`}
+>
   <div class="flex flex-col p-4 shadow-xl">
     <h2 class="text-md lg:text-xl">{title}</h2>
     <h2 class="opacity-50">{datetime && date ? dateStr : ""}</h2>
@@ -54,3 +58,21 @@ let dateStr = month + ", " + date.getFullYear();
     </div>
   </div>
 </div>
+
+<style>
+  .entry {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
