@@ -1,0 +1,41 @@
+---
+import "../../styles/global.css";
+import NavLayout from "../../layouts/NavLayout.astro";
+import Header from "../../components/projects/interactives/Header.astro";
+import { Icon } from "astro-icon/components";
+import Entry from "../../components/projects/interfaces/Entry.astro";
+import json from "../../assets/projects/interfaces.json";
+---
+
+<NavLayout>
+  <div class="flex flex-col pt-30">
+    <div class="mx-auto w-[80%] max-w-[40em] lg:w-full lg:max-w-[90%]">
+      <Header title="Mobile Designs" icon="mdi:mobile-phone-text" />
+      <div class="flex flex-col py-4 gap-4 lg:grid lg:grid-cols-3">
+        {
+          json.mobile.map((entry) => (
+            <Entry
+              title={entry.title}
+              link={entry.link}
+              datetime={entry.datetime}
+              tags={entry.tags}
+            />
+          ))
+        }
+      </div>
+      <Header title="Desktop Designs" icon="mdi:computer" />
+      <div class="flex flex-col py-4 gap-4 lg:grid lg:grid-cols-3">
+        {
+          json.desktop.map((entry) => (
+            <Entry
+              title={entry.title}
+              link={entry.link}
+              datetime={entry.datetime}
+              tags={entry.tags}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div></NavLayout
+>
