@@ -1,0 +1,17 @@
+---
+import "../../../styles/global.css";
+import { Icon } from "astro-icon/components";
+
+const { title, icon } = Astro.props;
+---
+
+<div>
+  <div
+    class="flex flex-row gap-2 items-center bg-linear-to-r from-primary to-purple-600 text-secondary p-4 text-2xl rounded-tr-2xl lg:rounded-tr-4xl lg:text-3xl select-none"
+  >
+    <Icon name={icon} />
+    <h1 class="w-full lg:w-fit">
+      {title}
+    </h1>
+  </div>
+</div>

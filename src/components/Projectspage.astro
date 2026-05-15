@@ -35,16 +35,4 @@ let buttons = [
       </div>
     </div>
   </div>
-
-  <script>
-    const previewVideo = document.querySelector("#preview") as HTMLVideoElement;
-    const buttons = document.querySelectorAll("[data-video]");
-
-    buttons.forEach((button) => {
-      button.addEventListener("mouseenter", () => {
-        previewVideo.src = button.getAttribute("data-video") as string;
-        previewVideo.play();
-      });
-    });
-  </script>
 </div>

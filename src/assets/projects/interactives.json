@@ -1,0 +1,116 @@
+{
+  "games": [
+    {
+      "title": "Leaves in a Garden",
+      "description": "Protect your potted plants and trade resources as a full-time gardener! An entry for Thailand Summer Jam 2026 - Won 71st place (Out of 133 entries.)",
+      "image": "../src/assets/images/leaves_in_a_garden.png",
+      "vdo": "../src/assets/videos/leaves_in_a_garden.mp4",
+      "link": "https://nottherealgun.itch.io/leaves-in-a-garden",
+      "datetime": "2026-04",
+      "tags": ["Godot 4", "Jam Entry"]
+    },
+    {
+      "title": "Project Rahu",
+      "description": "In the year 22XX, as Earth neared collapse, nations turned to space in a desperate race for survival. Fates were forever changed when a crew of astro-biologists embarked on a mission upon an alien asteroid.",
+      "image": "../src/assets/images/project_rahu.png",
+      "vdo": "../src/assets/videos/project_rahu.mp4",
+      "link": "https://nottherealgun.itch.io/project-rahu",
+      "datetime": "2025-12",
+      "tags": ["Unity 6", "Academic Project"]
+    },
+    {
+      "title": "Casket in Lembuh",
+      "description": "A detective investigates a murder mystery on a remote (fictional) Indonesian Island.",
+      "image": "../src/assets/images/casket_in_lembuh.png",
+      "vdo": "../src/assets/videos/casket_in_lembuh.mp4",
+      "link": "https://nottherealgun.itch.io/casket-in-lembuh",
+      "datetime": "2025-12-03",
+      "tags": ["RenPy", "Academic Project"]
+    },
+    {
+      "title": "Swapstack",
+      "description": "Cute math game where you combine little animals and see numbers increase. Perfect for kids!",
+      "image": "../src/assets/images/swapstack_bg.png",
+      "vdo": "../src/assets/videos/swapstack.mp4",
+      "link": "https://play.google.com/store/apps/details?id=com.nottherealgun.swapstack&pcampaignid=web_share",
+      "datetime": "2025-08",
+      "tags": ["Godot 4", "Mobile", "Android"]
+    },
+    {
+      "title": "Honor & Fantasy: Heroes",
+      "description": "The kingdom is at war! As a Hero, cast spells, support allies, and summon troops to turn the tide in a three-lane clash against the enemy. Destroy their base before they destroys yours!",
+      "image": "../src/assets/images/hnf.png",
+      "vdo": "../src/assets/videos/hnf.mp4",
+      "link": "https://nottherealgun.itch.io/honor-and-fantasy-heroes",
+      "datetime": "2025-03",
+      "tags": ["Unity 6", "Academic Project"]
+    },
+    {
+      "title": "Tad Bit",
+      "description": "You are a cursed prince trapped in the form of a frog. Your only hope for breaking the curse lies in ascending through dangerous levels, each one more difficult than the last.",
+      "image": "../src/assets/images/tad_bit.png",
+      "vdo": "../src/assets/videos/tad_bit.mp4",
+      "link": "https://nottherealgun.itch.io/tad-bit",
+      "datetime": "2024-12",
+      "tags": ["Unity 6", "Academic Project", "Cuphead-inspired"]
+    },
+    {
+      "title": "Burbur's Blimp",
+      "description": "Burbur is a Pilot. Burbur pilots a Blimp. He tries to collect fruits called Burbur Fruits. Help Burbur repair his rocket through trading, collecting fruits and more! An entry for GMTK Game Jam 2024 - Won 6712th place (Out of 7526 entries.)",
+      "image": "../src/assets/images/burbur.png",
+      "vdo": "../src/assets/videos/burbur.mp4",
+      "link": "https://nottherealgun.itch.io/burburs-blimp",
+      "datetime": "2024-08",
+      "tags": ["Godot 4", "Jam Entry"]
+    },
+    {
+      "title": "Nelly's Supply Store",
+      "description": "A chill and simple game where you manage a store on a beach. Your job is to help Nelly sell the items in her shop over the course of the summer. An entry for Strawberry Jam #2 - Won 1st place (Out of 4 entries.)",
+      "image": "../src/assets/images/nelly.png",
+      "vdo": "../src/assets/videos/nelly.mp4",
+      "link": "https://nottherealgun.itch.io/nellys-supply-store",
+      "datetime": "2023-06",
+      "tags": ["Godot 4", "Jam Entry"]
+    },
+    {
+      "title": "Skywars",
+      "description": "A roguelike 2.5D game set in Mahidol University International College. It focuses on gamified exaggerations of the daily lives of Creative Technology Major students and the \"academic anarchy\" within the campus.",
+      "image": "../src/assets/images/skywars.png",
+      "vdo": "../src/assets/videos/skywars.mp4",
+      "link": "https://nottherealgun.itch.io/skywars",
+      "datetime": "2023-04",
+      "tags": ["Godot 4"]
+    },
+    {
+      "title": "Guardians & Corruptors",
+      "description": "Guardians must vanquish all five towers behind enemy lines, while Corruptors aim to reach the land behind the Holy Protection.",
+      "image": "../src/assets/images/gnc.png",
+      "vdo": "../src/assets/videos/g_&_c.mp4",
+      "link": "https://nottherealgun.itch.io/guardians-and-corruptors",
+      "datetime": "2020-12",
+      "tags": ["Godot 3", "PVZ Clone"]
+    }
+  ],
+  "websites": [
+    {
+      "title": "nottherealgun.github.io",
+      "description": "It's this website! A personal portfolio and hobby website where I pour in all my love and passion for web development.",
+      "image": "../src/assets/images/this_site.png",
+      "vdo": "",
+      "link": "https://nottherealgun.github.io/",
+      "datetime": "2026-05",
+      "tags": ["Astro", "Next.js", "Tailwind"]
+    }
+  ],
+  "software": [
+    {
+      "title": "VN Editor",
+      "description": "A custom editor, built as a production tool for making my unannounced visual novel game project.",
+      "image": "../src/assets/images/vn_editor.png",
+      "vdo": "",
+      "link": "",
+      "datetime": "2023-09",
+      "tags": ["Godot 4"]
+    }
+  ]
+}
