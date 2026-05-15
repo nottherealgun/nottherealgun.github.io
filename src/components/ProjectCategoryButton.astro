@@ -1,34 +1,38 @@
 ---
-import '../styles/global.css';
-import { Icon } from 'astro-icon/components';
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
 
 const { buttonText, icon, link, index } = Astro.props;
 ---
 
 <a
-    class="interactive-entry entry flex gap-2 p-4 bg-white items-center transition-all hover:scale-102 hover:opacity-100 hover:rounded-tr-4xl lg:opacity-90 lg:h-full"
-    href={link}
-    style={`animation-delay: ${index * 0.1}s`}>
-    <p class="text-xl w-full">
-        {buttonText}
-    </p>
-    <Icon name={icon} class="w-8 h-auto"/>
+  class="interactive-entry entry flex gap-2 p-4 bg-white items-center justify-center transition-all hover:scale-102 hover:opacity-100 hover:rounded-tr-4xl lg:hover:rounded-tr-[4rem] lg:opacity-90 lg:aspect-square lg:flex-col"
+  href={link}
+  style={`animation-delay: ${index * 0.1}s`}
+>
+  <Icon
+    name={icon}
+    class="w-8 h-auto transition-all lg:h-1/2 lg:w-1/3 lg:hover:scale-120"
+  />
+  <p class="text-xl w-full lg:text-center">
+    {buttonText}
+  </p>
 </a>
 
 <style>
-    .entry {
-        animation: fadeIn 0.5s ease forwards;
-        opacity: 0;
-    }
+  .entry {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+  }
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
     }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 </style>
