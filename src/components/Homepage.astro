@@ -6,7 +6,10 @@ import Button from "../components/Button.astro";
 
 <div class="flex flex-col m-auto">
   <div class="flex flex-col items-center justify-center h-svh">
-    <div class="flex flex-col items-left gap-3 lg:gap-5">
+    <div
+      class="fade-in flex flex-col items-left gap-3 lg:gap-5"
+      style={`animation-delay: ${0.75}s`}
+    >
       <div class="flex flex-col text-[2rem] lg:text-6xl lg:gap-3">
         <h1 class="text-[4rem] lg:text-8xl">Hello,</h1>
         <h1>
@@ -48,25 +51,25 @@ import Button from "../components/Button.astro";
         buttonText="Projects"
         icon="mdi:flower-tulip"
         link="/projects"
-        index="1"
+        index={1}
       />
       <Button
-        buttonText="Resume & Portfolio"
+        buttonText="Skills & Experiences"
         icon="mdi:person-box"
-        link="/portfolio"
-        index="2"
+        link="/experiences"
+        index={2}
       />
       <Button
         buttonText="Articles"
         icon="mdi:file-document"
         link="/articles"
-        index="3"
+        index={3}
       />
       <Button
         buttonText="Extras"
         icon="mdi:shape-plus"
         link="/extras"
-        index="4"
+        index={4}
       />
 
       <div class="pt-20 text-secondary w-full opacity-50">
@@ -114,8 +117,20 @@ import Button from "../components/Button.astro";
 </div>
 
 <style>
-  a:hover {
-    text-decoration: underline;
+  .fade-in {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>
 
@@ -163,12 +178,12 @@ import Button from "../components/Button.astro";
     "non-religious by heart",
   ];
 
-  const frogImg = document.getElementById("frog-img") as HTMLImageElement;
   const frogBtn = document.getElementById("frog-btn") as HTMLButtonElement;
   const frogText = document.getElementById("frog-text") as HTMLParagraphElement;
 
   let index = 0;
   let nextText = texts[index];
+  let frogIsRibbiting = false;
 
   setInterval(() => {
     index = (index + 1) % texts.length;
@@ -202,8 +217,6 @@ import Button from "../components/Button.astro";
         ? "visible"
         : "hidden";
   }
-
-  let frogIsRibbiting = false;
 
   async function FrogRibbit() {
     if (frogIsRibbiting == false) {

@@ -16,7 +16,7 @@
       "vdo": "../src/assets/videos/project_rahu.mp4",
       "link": "https://nottherealgun.itch.io/project-rahu",
       "datetime": "2025-12",
-      "tags": ["Unity 6", "Academic Project"]
+      "tags": ["Unity 6", "Academic"]
     },
     {
       "title": "Casket in Lembuh",
@@ -25,7 +25,7 @@
       "vdo": "../src/assets/videos/casket_in_lembuh.mp4",
       "link": "https://nottherealgun.itch.io/casket-in-lembuh",
       "datetime": "2025-12-03",
-      "tags": ["RenPy", "Academic Project"]
+      "tags": ["RenPy", "Academic"]
     },
     {
       "title": "Swapstack",
@@ -43,7 +43,7 @@
       "vdo": "../src/assets/videos/hnf.mp4",
       "link": "https://nottherealgun.itch.io/honor-and-fantasy-heroes",
       "datetime": "2025-03",
-      "tags": ["Unity 6", "Academic Project"]
+      "tags": ["Unity 6", "Academic"]
     },
     {
       "title": "Tad Bit",
@@ -52,7 +52,7 @@
       "vdo": "../src/assets/videos/tad_bit.mp4",
       "link": "https://nottherealgun.itch.io/tad-bit",
       "datetime": "2024-12",
-      "tags": ["Unity 6", "Academic Project", "Cuphead-inspired"]
+      "tags": ["Unity 6", "Academic", "Cuphead-inspired"]
     },
     {
       "title": "Burbur's Blimp",

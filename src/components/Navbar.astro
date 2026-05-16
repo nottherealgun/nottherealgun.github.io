@@ -1,27 +1,46 @@
 ---
-import '../styles/global.css';
-import { Icon } from 'astro-icon/components'
+import type Index from "../pages/index.astro";
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
 
-const rawPath = Astro.url.pathname
-const slugs = rawPath.split('/').filter(Boolean);
+const rawPath = Astro.url.pathname;
+const slugs = rawPath.split("/").filter(Boolean);
+
+const additiveSlugs = [slugs[0]] as string[];
+
+slugs.forEach((slug, index) => {
+  if (index === 0) {
+    return;
+  }
+
+  additiveSlugs.push(additiveSlugs[index - 1] + "/" + slug);
+});
+
+console.log(slugs);
+console.log(additiveSlugs);
 ---
 
 <div class="p-4 fixed w-full z-10">
-    <div class="flex flex-row p-4 bg-white items-center justify-left shadow-2xl transition-all hover:rounded-4xl">
-        <a class="flex hover:cursor-pointer lg:mr-4" onclick="history.back()">
-            <Icon name="mdi:arrow-left" class="w-8 h-auto"/>
-        </a>
-        <a class="flex" href="/">
-            <Icon name="mdi:home" class="w-8 h-auto"/>
-        </a>
-        <div id="nav-path-container" class="flex flex-row">
-            {slugs.map((slug) => (
-                <div class="flex flex-row items-center">
-                    <Icon name="mdi:keyboard-arrow-right"/>
-                    <p class="text-primary">{slug}</p>
-                </div>
-            ))}
-        </div>
-
+  <div
+    class="flex flex-row p-4 bg-white items-center justify-left shadow-2xl transition-all hover:rounded-4xl"
+  >
+    <a class="flex hover:cursor-pointer lg:mr-4" onclick="history.back()">
+      <Icon name="mdi:arrow-left" class="w-8 h-auto" />
+    </a>
+    <a class="flex" href="/">
+      <Icon name="mdi:home" class="w-8 h-auto" />
+    </a>
+    <div id="nav-path-container" class="flex flex-row">
+      {
+        slugs.map((slug, index) => (
+          <div class="flex flex-row items-center">
+            <Icon name="mdi:keyboard-arrow-right" />
+            <a class="text-primary" href={"../" + additiveSlugs[index]}>
+              {slug[0].toUpperCase() + slug.substring(1).toLowerCase()}
+            </a>
+          </div>
+        ))
+      }
     </div>
+  </div>
 </div>

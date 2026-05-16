@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #3f0085;
-    --color-secondary: #FFFFFF;
+  --color-primary: #3f0085;
+  --color-secondary: #ffffff;
 }
 
-html{
-    font-family: var(--font-poppins);
-    color: var(--color-primary);
+html {
+  font-family: var(--font-poppins);
+  color: var(--color-primary);
+}
+
+a:hover {
+  text-decoration: underline;
 }
