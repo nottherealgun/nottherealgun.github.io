@@ -1,0 +1,20 @@
+---
+import { Font } from "astro:assets";
+import json from "../../assets/extras/extras.json";
+
+type Category = keyof typeof json;
+
+interface Props {
+  title?: string;
+  dataCategory?: Category;
+}
+
+const { title = "", dataCategory } = Astro.props;
+---
+
+<div class="shadow-xl group-wrapper" data-category={dataCategory}>
+  <h1 class="p-4 shadow-xl bg-primary text-secondary h-fit lg:text-center">
+    {title}
+  </h1>
+  <slot />
+</div>

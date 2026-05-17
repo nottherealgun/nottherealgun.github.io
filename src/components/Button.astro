@@ -1,0 +1,42 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  buttonText: string;
+  icon?: string;
+  link: string;
+  index: number;
+}
+
+const { buttonText, icon, link, index = 1 } = Astro.props;
+---
+
+<a
+  class="interactive-entry entry flex gap-2 p-4 bg-white items-center transition-all hover:scale-102 hover:rounded-tr-4xl"
+  href={link}
+  style={`animation-delay: ${index * 0.1}s`}
+>
+  <p class="text-xl w-full">
+    {buttonText}
+  </p>
+  <Icon name={icon} class={"w-8 h-auto" + icon ? "" : " hidden"} />
+</a>
+
+<style>
+  .entry {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

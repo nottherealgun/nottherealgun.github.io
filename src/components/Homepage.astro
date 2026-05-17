@@ -1,0 +1,232 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+import Button from "../components/Button.astro";
+---
+
+<div class="flex flex-col m-auto">
+  <div class="flex flex-col items-center justify-center h-svh">
+    <div
+      class="fade-in flex flex-col items-left gap-3 lg:gap-5"
+      style={`animation-delay: ${0.75}s`}
+    >
+      <div class="flex flex-col text-[2rem] lg:text-6xl lg:gap-3">
+        <h1 class="text-[4rem] lg:text-8xl">Hello,</h1>
+        <h1>
+          My name is <span
+            class="font-extrabold bg-primary text-white px-2 rounded-lg lg:px-4 lg:rounded-2xl"
+            >Gun</span
+          >
+        </h1>
+      </div>
+      <div class="flex flex-row opacity-50">
+        <p class="lg:text-3xl">
+          I am <span id="rotating-text">a game developer</span><span
+            id="blinking-cursor">_</span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="overflow-hidden flex-col items-center hidden lg:flex lg:items-start"
+  >
+    <button
+      id="frog-btn"
+      class="w-fit lg:ml-10 cursor-pointer flex flex-col items-center justify-center gap-0"
+    >
+      <p id="frog-text" class="relative top-15 invisible">*ribbit*</p>
+      <img
+        id="frog-img"
+        src="../../src/assets/images/frog_no_bg.png"
+        class="object-cover w-40 top-10 relative hover:top-5 transition-all"
+      />
+    </button>
+  </div>
+  <div
+    class="flex flex-col h-svh bg-linear-to-t from-primary to-purple-600 items-center justify-center py-10"
+  >
+    <div class="flex flex-col w-[80%] lg:w-[90%] max-w-[40em] gap-y-2">
+      <Button
+        buttonText="Projects"
+        icon="mdi:flower-tulip"
+        link="/projects"
+        index={1}
+      />
+      <Button
+        buttonText="Skills & Experiences"
+        icon="mdi:person-box"
+        link="/experiences"
+        index={2}
+      />
+      <Button
+        buttonText="Articles & Blogs"
+        icon="mdi:file-document"
+        link="/posts"
+        index={3}
+      />
+      <Button
+        buttonText="Extras"
+        icon="mdi:shape-plus"
+        link="/extras"
+        index={4}
+      />
+
+      <div class="pt-20 text-secondary w-full opacity-50">
+        <div
+          class="flex flex-col gap-2 lg:flex-wrap lg:flex-row lg:justify-center"
+        >
+          <div class="flex flex-row items-center gap-2">
+            <Icon name="mdi:email" />
+            <a
+              href="mailto:thanapat.nart@gmail.com?subject=Hello&body=Hi there!"
+              >thanapat.nart@gmail.com</a
+            >
+          </div>
+          <div class="flex flex-row items-center gap-2">
+            <Icon name="mdi:linkedin" />
+            <a
+              href="https://www.linkedin.com/in/thanapat-nartthanarung-627b69229/"
+              >Thanapat Nartthanarung</a
+            >
+          </div>
+          <div class="flex flex-row items-center gap-2">
+            <Icon name="mdi:facebook" />
+            <a href="https://www.facebook.com/profile.php?id=61571278802831"
+              >Thanapat Nartthanarung</a
+            >
+          </div>
+          <div class="flex flex-row items-center gap-2">
+            <Icon name="bluesky" />
+            <a href="https://bsky.app/profile/nottherealgun.bsky.social"
+              >nottherealgun.bsky.social</a
+            >
+          </div>
+          <div class="flex flex-row items-center gap-2">
+            <Icon name="mdi:github" />
+            <a href="https://github.com/nottherealgun">nottherealgun</a>
+          </div>
+          <div class="flex flex-row items-center gap-2">
+            <Icon name="itchio" />
+            <a href="https://nottherealgun.itch.io/">nottherealgun</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .fade-in {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+  const rotatingTextElement = document.querySelector(
+    "#rotating-text",
+  ) as HTMLParagraphElement;
+  const blinkingCursorElement = document.querySelector(
+    "#blinking-cursor",
+  ) as HTMLSpanElement;
+
+  const year = new Date().getFullYear();
+  const texts = [
+    "a game developer",
+    "a game designer",
+    "a graphic designer",
+    "a UX/UI designer",
+    "a front-end developer",
+    "a programmer",
+    "a lifelong learner",
+    "a Thai national",
+    "a Bangkok resident",
+    "an MUIC alumnus",
+    "an international student",
+    "bilingual",
+    "not a Chinese speaker",
+    "not a firearm",
+    "a Minecraft player",
+    "an Anime lover",
+    "a FOSS software advocate",
+    "a Reddit user",
+    "a Bluesky user",
+    "a Facebook user",
+    year - 2004 + " years old",
+    "still a Windows user",
+    "an Android user",
+    "a Godot user",
+    "trying out Raylib",
+    "trying out Astro",
+    "trying out Hugo",
+    "trying out Three.js",
+    "re-typing this every 5 seconds",
+    "non-religious by heart",
+  ];
+
+  const frogBtn = document.getElementById("frog-btn") as HTMLButtonElement;
+  const frogText = document.getElementById("frog-text") as HTMLParagraphElement;
+
+  let index = 0;
+  let nextText = texts[index];
+  let frogIsRibbiting = false;
+
+  setInterval(() => {
+    index = (index + 1) % texts.length;
+    nextText = texts[index];
+    TypeText();
+  }, 5000);
+
+  setInterval(() => {
+    Blink();
+  }, 200);
+
+  async function TypeText() {
+    while (rotatingTextElement.textContent.length > 0) {
+      rotatingTextElement.textContent = rotatingTextElement.textContent.slice(
+        0,
+        -1,
+      );
+      await sleep(50);
+    }
+    await sleep(250);
+    while (rotatingTextElement.textContent.length < nextText.length) {
+      rotatingTextElement.textContent +=
+        nextText[rotatingTextElement.textContent.length];
+      await sleep(100);
+    }
+  }
+
+  function Blink() {
+    blinkingCursorElement.style.visibility =
+      blinkingCursorElement.style.visibility === "hidden"
+        ? "visible"
+        : "hidden";
+  }
+
+  async function FrogRibbit() {
+    if (frogIsRibbiting == false) {
+      frogIsRibbiting = true;
+      frogText.classList.remove("invisible");
+      await sleep(1000);
+      frogText.classList.add("invisible");
+      frogIsRibbiting = false;
+    }
+  }
+
+  frogBtn.addEventListener("click", FrogRibbit);
+</script>

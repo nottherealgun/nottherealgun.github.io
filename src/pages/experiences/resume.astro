@@ -1,0 +1,218 @@
+---
+import "../../styles/global.css";
+import NavLayout from "../../layouts/NavLayout.astro";
+import Button from "../../components/Button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<NavLayout pageTitle="Resume">
+  <div class="flex flex-col m-auto">
+    <div
+      class="flex flex-col gap-6 min-h-svh pt-30 items-center lg:gap-8 lg:px-100"
+    >
+      <div class="flex flex-col gap-4 text-lg pb-8 w-[80%] lg:w-[75%]">
+        <h1 class="text-2xl lg:text-4xl">
+          <span class="font-bold">Thanapat</span> Nartthanarung
+        </h1>
+        <h2 class="opacity-50">
+          Game Developer, Graphic & UI Designer, Candid Learner
+        </h2>
+        <div>
+          <div
+            class="overflow-visible flex flex-nowrap items-center gap-2 opacity-50"
+          >
+            <Icon name="mdi:email" />
+            <h2>thanapat.nart@gmail.com</h2>
+          </div>
+          <div
+            class="overflow-visible flex flex-nowrap items-center gap-2 opacity-50"
+          >
+            <Icon name="mdi:location" />
+            <h2>Bangkok, Thailand (GMT+7)</h2>
+          </div>
+          <div
+            class="overflow-visible flex flex-nowrap items-center gap-2 opacity-50"
+          >
+            <Icon name="mdi:gun" />
+            <h2>Military Status: Exempted (ROTC)</h2>
+          </div>
+          <div
+            class="overflow-visible flex flex-nowrap items-center gap-2 opacity-50"
+          >
+            <Icon name="mdi:rename" />
+            <h2>Aliases: Gun, ธนภัทร, กัน, ナータナルン　タナパット, ガン</h2>
+          </div>
+          <div
+            class="overflow-visible flex flex-nowrap items-center gap-2 opacity-50"
+          >
+            <Icon name="mdi:new-releases" />
+            <h2>Last updated: May, 2026</h2>
+          </div>
+        </div>
+
+        <h2 class="p-2 bg-primary text-secondary rounded-tr-4xl">Experience</h2>
+
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-row">
+            <div class="w-full h-auto flex flex-col">
+              <h3 class="font-bold">Game Programmer Intern</h3>
+              <div class="flex flex-row items-center gap-1">
+                <Icon name="mdi:location" />
+                <a href="https://www.corecell.co.th/"
+                  >Corecell Technologies Co., Ltd.</a
+                >
+              </div>
+            </div>
+            <p>2025</p>
+          </div>
+          <ul class="list-inside list-disc opacity-50 flex flex-col gap-4">
+            <li>
+              <span class="font-bold">Implemented game features</span> - Animated
+              cutscenes with Unity's Cinemachine & Timeline; designed levels with
+              prefabs; implemented upgrade points reset features and UI
+            </li>
+            <li>
+              <span class="font-bold">Bug-testing & QA</span> - Tested the game for
+              bugs and reported via Google Sheets
+            </li>
+            <li>
+              <span class="font-bold">Automated with Python</span> - Through pair-programming,
+              wrote several Python script to facilitate asset integration process
+              from art team into Unity
+            </li>
+          </ul>
+          <div class="flex flex-row">
+            <div class="w-full h-auto flex flex-col">
+              <h3 class="font-bold">UX/UI Designer Trainee</h3>
+              <div class="flex flex-row items-center gap-1">
+                <Icon name="mdi:location" />
+                <a href="https://www.bdms.co.th/"
+                  >Bangkok Dusit Medical Services PLC.</a
+                >
+              </div>
+            </div>
+            <p>2025</p>
+          </div>
+          <ul class="list-inside list-disc opacity-50 flex flex-col gap-4">
+            <li>
+              <span class="font-bold">Researched hospital user flows</span> - With
+              supervisor guidance, researched various user flows of patients (e.g.
+              payment)
+            </li>
+            <li>
+              <span class="font-bold">Built a My B+ application UI mock-up</span
+              > - Designed mock-up mobile UIs of the My B+ application using Figma
+              (e.g. on-boarding)
+            </li>
+            <li>
+              <span class="font-bold">Made Design Guidelines</span> - Made custom
+              design guidelines derived from BDMS corporate identity through Figma
+            </li>
+          </ul>
+        </div>
+
+        <h2 class="p-2 bg-primary text-secondary rounded-tr-4xl">Education</h2>
+
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-row">
+            <div class="w-full h-auto flex flex-col">
+              <h3 class="font-bold">Master's of Arts (M.A.)</h3>
+              <h3>
+                Digital Media & Asset Management (Prospective Student - Sept.
+                2026)
+              </h3>
+            </div>
+            <p class="w-full text-end">2026-Present</p>
+          </div>
+          <div class="flex flex-row items-center gap-1 opacity-50">
+            <Icon name="mdi:location" />
+            <a
+              href="https://www.kcl.ac.uk/study/postgraduate-taught/courses/digital-asset-and-media-management-ma"
+              >King's College London - Strand, London, United Kingdom</a
+            >
+          </div>
+          <div class="flex flex-row">
+            <div class="w-full h-auto flex flex-col">
+              <h3 class="font-bold">Bachelor's of Arts & Science (B.A.Sc.)</h3>
+              <h3>Creative Technology Major - CGPA 3.71</h3>
+            </div>
+            <p>2022-2025</p>
+          </div>
+          <div class="flex flex-row items-center gap-1 opacity-50">
+            <Icon name="mdi:location" />
+            <a
+              href="https://muic.mahidol.ac.th/en/programs/science/major/major-in-creative-technology"
+              >Mahidol University International College - Salaya, Nakhon Pathom,
+              Thailand</a
+            >
+          </div>
+          <div class="flex flex-row">
+            <div class="w-full h-auto flex flex-col">
+              <h3 class="font-bold">
+                Secondary School Diploma (<a
+                  href="https://en.wikipedia.org/wiki/Secondary_school"
+                  >ISCED Level 2-3)</a
+                >
+              </h3>
+              <h3>English Program - CGPA 3.40</h3>
+            </div>
+            <p>2020-2022</p>
+          </div>
+          <div class="flex flex-row items-center gap-1 opacity-50">
+            <Icon name="mdi:location" />
+            <a href="https://www.samsenwit.ac.th/"
+              >Samsenwittayalai School - Phaya Thai, Bangkok, Thailand</a
+            >
+          </div>
+        </div>
+
+        <h2 class="p-2 bg-primary text-secondary rounded-tr-4xl">
+          Interests & Skills
+        </h2>
+        <ul class="list-inside list-disc flex flex-col gap-4">
+          <li>
+            Professional-working English proficiency (CEFR C1 - IELTS Academic
+            Overall 7.5 - Mar. 2026)
+          </li>
+          <li>
+            Pre-intermediate Japanese proficiency (JLPT N4-equivalent; <a
+              href="https://muic.mahidol.ac.th/en/student/academic-programs/certificates-in-the-bachelors-degree-programs/"
+              >Certified by academic institution</a
+            >)
+          </li>
+          <li>
+            Exchange Student - <a
+              href="https://cie.chiba-u.ac.jp/en/programs/index.html"
+              >J-PAC Program</a
+            >, College of Liberal Arts & Sciences, Chiba University, Japan, 2024
+          </li>
+          <li>
+            President, Public Relations & Project Manager for <a
+              href="https://linktr.ee/muic.agcclub"
+              >Animations, Games & Comics Club</a
+            >, Mahidol University International College, 2023-2024
+          </li>
+          <li>
+            Use and understanding of Microsoft Office Suite (Word, Excel), Adobe
+            Suite (PS, AI, PR, AE), Godot, Unity, Blender, Aseprite, Trello,
+            Visual Studio Code, GitHub, Unity VCS, Procreate, Figma, Canva
+          </li>
+          <li>
+            Basic use and understanding of AI agents/chat-bots/software:
+            ChatGPT, Claude, Gemini, DeepSeek, Ollama, Runway
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</NavLayout>
+
+<style>
+  a {
+    text-decoration: underline;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+</style>

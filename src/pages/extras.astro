@@ -1,0 +1,53 @@
+---
+import "../styles/global.css";
+import NavLayout from "../layouts/NavLayout.astro";
+import CategoryButton from "../components/CategoryButton.astro";
+
+let buttons = [
+  {
+    icon: "mdi:favorite-box-multiple",
+    buttonText: "Favorite Things",
+    link: "/extras/favorites",
+    disabled: false,
+  },
+  {
+    icon: "mdi:toys",
+    buttonText: "Gun\'s Toy Box",
+    link: "",
+    disabled: true,
+  },
+  {
+    icon: "mdi:checkbox-marked-circle-auto-outline",
+    buttonText: "Interactive Compatibility Checker",
+    link: "",
+    disabled: true,
+  },
+];
+---
+
+<NavLayout pageTitle="Extras">
+  <div class="flex flex-col m-auto">
+    <div
+      class="flex flex-col gap-6 items-center-safe justify-center min-h-svh bg-linear-to-t from-primary to-purple-600 lg:gap-8"
+    >
+      <div class="flex text-secondary">
+        <h1 class="text-2xl lg:text-4xl">Extra Stuff About/From Me</h1>
+      </div>
+      <div class="flex flex-row gap-4">
+        <div class="flex flex-col gap-2 lg:flex-row">
+          {
+            buttons.map((button, index) => (
+              <CategoryButton
+                icon={button.icon}
+                buttonText={button.buttonText}
+                link={button.link}
+                index={index}
+                disabled={button.disabled}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</NavLayout>

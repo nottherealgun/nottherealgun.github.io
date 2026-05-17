@@ -1,0 +1,59 @@
+---
+import "../../styles/global.css";
+import NavLayout from "../../layouts/NavLayout.astro";
+import ThreeByThree from "../../components/extras/3-by-3.astro";
+import Entry from "../../layouts/extras/Entry.astro";
+---
+
+<NavLayout pageTitle="Favorites">
+  <div class="flex flex-col m-auto">
+    <div
+      class="flex flex-col gap-6 min-h-svh py-30 lg:gap-8 px-8 lg:px-auto lg:grid lg:grid-cols-4"
+    >
+      <ThreeByThree
+        category="anime"
+        title="Anime (Japanese Animated Series) I've watched"
+      />
+      <ThreeByThree
+        category="manga"
+        title="Manga (Japanese Comics) I've read"
+      />
+      <ThreeByThree category="games" title="Video Games I play" />
+      <ThreeByThree category="films" title="Movies & Films I've watched" />
+      <ThreeByThree category="shows" title="Shows & Series I've watched" />
+      <ThreeByThree
+        category="musicians"
+        title="Music Artists & Bands I listen to"
+      />
+      <ThreeByThree category="youtubers" title="Youtube Channels I watch" />
+      <Entry title="Other Trivia">
+        <div class="p-4 lg:p-8">
+          <ul class="list-disc list-inside">
+            <p class="py-1 px-2 text-secondary bg-primary mb-4">
+              Books I've read
+            </p>
+            <li>Haruhi Suzumiya Light Novel Series (Nagaru Tanigawa)</li>
+            <li>The Art of Game Design (Jesse Schell)</li>
+            <li>Level Up! The Guide to Great Game Design (Scott Rogers)</li>
+          </ul>
+          <ul class="list-disc list-inside">
+            <p class="py-1 px-2 text-secondary bg-primary my-4">
+              Visual Novels I've played
+            </p>
+            <li>Higurashi - When They Cry</li><li>
+              Aokana - Four Rhythms Across the Blue
+            </li>
+            <li>Sanoba Witch</li>
+          </ul>
+          <ul class="list-disc list-inside">
+            <p class="py-1 px-2 text-secondary bg-primary my-4">
+              Cities I've visited
+            </p>
+            <li>Japan: Tokyo, Chiba, Sapporo</li>
+            <li>Europe: London, Munich, Lucerne</li>
+          </ul>
+        </div>
+      </Entry>
+    </div>
+  </div>
+</NavLayout>

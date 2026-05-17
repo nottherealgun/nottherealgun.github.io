@@ -1,0 +1,57 @@
+---
+import "../../styles/global.css";
+import json from "../../assets/extras/extras.json";
+import Entry from "../../layouts/extras/Entry.astro";
+
+type Category = keyof typeof json;
+
+interface Props {
+  title: string;
+  category: Category;
+  col?: number;
+}
+
+const { title, category, col = 3 } = Astro.props;
+---
+
+<Entry title={title} dataCategory={category}>
+  <div class="aspect-square w-auto h-auto bg-gray-200 flex flex-row flex-wrap">
+    {
+      json[category].map((entry) => (
+        <div
+          style={`background-image: url('${entry.image}'); width: ${100 / col}%`}
+          class="entry bg-cover hover:scale-110 transition-all aspect-square"
+        />
+      ))
+    }
+  </div>
+  <p class="display p-4 shadow-xl hidden lg:block h-15"></p>
+  <div class="block lg:hidden p-4">
+    <ul class="list-disc list-inside">
+      {json[category].map((entry) => <li>{entry.name}</li>)}
+    </ul>
+  </div>
+</Entry>
+
+<script>
+  import json from "../../assets/extras/extras.json";
+  type Category = keyof typeof json;
+  document.querySelectorAll(".group-wrapper").forEach((component) => {
+    const category = component.getAttribute("data-category") as Category;
+    const entries = component.querySelectorAll(".entry");
+    const textDisplay = component.querySelector(
+      ".group-wrapper .display",
+    ) as HTMLParagraphElement;
+
+    entries.forEach((entry, index) => {
+      entry.addEventListener("mouseenter", () => {
+        textDisplay.textContent = json[category][index].name;
+      });
+    });
+    entries.forEach((entry) => {
+      entry.addEventListener("mouseleave", () => {
+        textDisplay.textContent = "";
+      });
+    });
+  });
+</script>

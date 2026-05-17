@@ -1,0 +1,154 @@
+---
+import { Icon } from "astro-icon/components";
+import "../../../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  image: string; // path
+  vdo: string; // path
+  link: string; // path
+  datetime: string; // date
+  tags?: string[] | null;
+  index: number;
+}
+
+const { title, description, image, vdo, link, datetime, tags, index } =
+  Astro.props;
+
+function getMonthList(
+  locales?: string | string[],
+  format: "long" | "short" = "long",
+): string[] {
+  const year = new Date().getFullYear(); // 2020
+  const monthList = [...Array(12).keys()]; // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  const formatter = new Intl.DateTimeFormat(locales, {
+    month: format,
+  });
+
+  const getMonthName = (monthIndex: number) =>
+    formatter.format(new Date(year, monthIndex));
+
+  return monthList.map(getMonthName);
+}
+
+let date = new Date(datetime);
+let month = getMonthList("en")[date.getMonth()];
+let dateStr = month + ", " + date.getFullYear();
+---
+
+<div
+  class="entry"
+  id="interactive-entry"
+  style={`animation-delay: ${(index + 1.0) * 0.1}s`}
+>
+  <div
+    class="flex flex-row p-4 bg-primary text-secondary w-full image-toggle-component items-center gap-3"
+  >
+    <div class="transition-all w-full">
+      <h1 class="title text-xl lg:text-2xl">{title}</h1>
+      <h2 class="opacity-50">{datetime && date ? dateStr : ""}</h2>
+    </div>
+    <button
+      class="link-btn h-full aspect-square cursor-pointer"
+      data-link={link}
+    >
+      <Icon name="mdi:external-link" />
+    </button>
+    <button
+      class="image-show-btn h-full aspect-square cursor-pointer lg:hidden"
+    >
+      <Icon class="icon-eye-opened" name="mdi:eye" />
+      <Icon class="icon-eye-closed hidden" name="mdi:eye-closed" />
+    </button>
+  </div>
+  <div
+    class="image-div w-full h-64 transition-all flex justify-center"
+    style={"background: url(" + image + "); background-size: cover;"}
+  >
+    <video
+      autoplay
+      muted
+      loop
+      src={vdo}
+      playsinline
+      disablepictureinpicture
+      class="object-cover h-full lg:w-full"></video>
+  </div>
+  <div
+    class="flex flex-col gap-6 bg-secondary w-full p-4 shadow-xl select-none"
+  >
+    <div
+      class={"text-primary h-fit flex flex-row flex-wrap gap-2 " +
+        (tags && tags.length > 0 ? "" : "hidden")}
+    >
+      {
+        tags?.map((tag: string, index) => (
+          <p class="px-2 py-1 bg-secondary shadow-lg rounded-lg">{tag}</p>
+        ))
+      }
+    </div>
+    <p>{description}</p>
+  </div>
+</div>
+
+<style>
+  .entry {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  // Select ALL components, loop through each
+  document.querySelectorAll(".image-toggle-component").forEach((component) => {
+    const btn = component.querySelector(".image-show-btn") as HTMLButtonElement;
+    const linkBtn = component.querySelector(".link-btn") as HTMLButtonElement;
+    const iconEyeOpened = component.querySelector(
+      ".image-show-btn .icon-eye-opened",
+    ) as HTMLElement;
+    const iconEyeClosed = component.querySelector(
+      ".image-show-btn .icon-eye-closed",
+    ) as HTMLElement;
+    const imageDiv = component.parentElement?.querySelector(
+      ".image-div",
+    ) as HTMLDivElement;
+    const title = component.querySelector(".title") as HTMLHeadingElement;
+
+    let isHidden = true;
+
+    btn.addEventListener("click", () => {
+      isHidden = !isHidden;
+
+      if (isHidden) {
+        imageDiv.style.height = "16rem";
+        iconEyeOpened.classList.remove("hidden");
+        iconEyeClosed.classList.add("hidden");
+        title.classList.remove("opacity-50");
+      } else {
+        imageDiv.style.height = "0rem";
+        iconEyeOpened.classList.add("hidden");
+        iconEyeClosed.classList.remove("hidden");
+        title.classList.add("opacity-50");
+      }
+    });
+
+    let linkURL = linkBtn.dataset["link"] as string;
+
+    if (linkURL === "") linkBtn.classList.add("hidden");
+    linkBtn.addEventListener("click", () => {
+      window.open(linkURL, "_blank");
+    });
+  });
+</script>

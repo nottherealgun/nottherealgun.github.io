@@ -1,0 +1,19 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  buttonText: string;
+  link: string;
+}
+
+const { buttonText, link } = Astro.props;
+---
+
+<a
+  class="interactive-entry entry flex gap-2 p-4 bg-white items-center transition-all shadow-xl hover:scale-102 hover:rounded-tr-4xl"
+  href={link}
+>
+  <p class="text-xl w-full">
+    {buttonText}
+  </p>
+</a>
