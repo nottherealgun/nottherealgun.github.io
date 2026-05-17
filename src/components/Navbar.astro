@@ -8,6 +8,8 @@ const slugs = rawPath.split("/").filter(Boolean);
 
 const additiveSlugs = [slugs[0]] as string[];
 
+const { pageTitle } = Astro.props;
+
 slugs.forEach((slug, index) => {
   if (index === 0) {
     return;
@@ -15,14 +17,11 @@ slugs.forEach((slug, index) => {
 
   additiveSlugs.push(additiveSlugs[index - 1] + "/" + slug);
 });
-
-console.log(slugs);
-console.log(additiveSlugs);
 ---
 
 <div class="p-4 fixed w-full z-10">
   <div
-    class="flex flex-row p-4 bg-white items-center justify-left shadow-2xl transition-all hover:rounded-4xl"
+    class="flex flex-row p-4 bg-white items-center justify-left shadow-xl transition-all hover:rounded-4xl"
   >
     <a class="flex hover:cursor-pointer lg:mr-4" onclick="history.back()">
       <Icon name="mdi:arrow-left" class="w-8 h-auto" />
@@ -30,13 +29,18 @@ console.log(additiveSlugs);
     <a class="flex" href="/">
       <Icon name="mdi:home" class="w-8 h-auto" />
     </a>
-    <div id="nav-path-container" class="flex flex-row">
+    <div id="nav-path-container" class="flex flex-row overflow-y-scroll">
       {
         slugs.map((slug, index) => (
           <div class="flex flex-row items-center">
             <Icon name="mdi:keyboard-arrow-right" />
-            <a class="text-primary" href={"../" + additiveSlugs[index]}>
-              {slug[0].toUpperCase() + slug.substring(1).toLowerCase()}
+            <a
+              class="text-primary text-nowrap text-ellipsis"
+              href={"../" + additiveSlugs[index]}
+            >
+              {additiveSlugs[index].includes("posts/")
+                ? pageTitle
+                : slug[0].toUpperCase() + slug.substring(1).toLowerCase()}
             </a>
           </div>
         ))

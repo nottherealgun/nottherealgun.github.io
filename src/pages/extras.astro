@@ -5,33 +5,33 @@ import CategoryButton from "../components/CategoryButton.astro";
 
 let buttons = [
   {
-    icon: "mdi:resume",
-    buttonText: "Resume",
-    link: "/experiences/resume",
+    icon: "mdi:favorite-box-multiple",
+    buttonText: "Favorite Things",
+    link: "/extras/favorites",
     disabled: false,
   },
   {
-    icon: "mdi:folder-account",
-    buttonText: "Portfolio",
-    link: "https://canva.link/ez9d5855g6hub76",
-    disabled: false,
+    icon: "mdi:toys",
+    buttonText: "Gun\'s Toy Box",
+    link: "",
+    disabled: true,
   },
   {
-    icon: "mdi:image-multiple",
-    buttonText: "Public Gallery",
-    link: "https://canva.link/ez9d5855g6hub76",
+    icon: "mdi:checkbox-marked-circle-auto-outline",
+    buttonText: "Interactive Compatibility Checker",
+    link: "",
     disabled: true,
   },
 ];
 ---
 
-<NavLayout pageTitle="Experiences">
+<NavLayout pageTitle="Extras">
   <div class="flex flex-col m-auto">
     <div
       class="flex flex-col gap-6 items-center-safe justify-center min-h-svh bg-linear-to-t from-primary to-purple-600 lg:gap-8"
     >
       <div class="flex text-secondary">
-        <h1 class="text-2xl lg:text-4xl">My Skills & Experiences</h1>
+        <h1 class="text-2xl lg:text-4xl">Extra Stuff About/From Me</h1>
       </div>
       <div class="flex flex-row gap-4">
         <div class="flex flex-col gap-2 lg:flex-row">

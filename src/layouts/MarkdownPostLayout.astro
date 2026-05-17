@@ -1,0 +1,59 @@
+---
+import "../styles/global.css";
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+
+function getMonthList(
+  locales?: string | string[],
+  format: "long" | "short" = "long",
+): string[] {
+  const year = new Date().getFullYear(); // 2020
+  const monthList = [...Array(12).keys()]; // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  const formatter = new Intl.DateTimeFormat(locales, {
+    month: format,
+  });
+
+  const getMonthName = (monthIndex: number) =>
+    formatter.format(new Date(year, monthIndex));
+
+  return monthList.map(getMonthName);
+}
+
+function getDateStr(date: Date) {
+  let month = getMonthList("en")[date.getMonth()];
+  let dateStr = date.getDate() + " " + month + ", " + date.getFullYear();
+  return dateStr;
+}
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <div class="px-8 pt-30 min-h-svh flex flex-col items-center w-full">
+    <div class="flex flex-col gap-4 lg:w-[30%] text-black">
+      <div class="flex flex-col gap-2">
+        <h1 class="text-primary text-2xl font-semibold">
+          {frontmatter.title}
+        </h1>
+        <p class="opacity-50">{getDateStr(new Date(frontmatter.pubDate))}</p>
+      </div>
+      <div class="slot flex flex-col gap-6">
+        <slot />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const content = document.querySelector(".slot") as HTMLSlotElement;
+  content.querySelectorAll("h1").forEach((element) => {
+    element.classList.add("text-2xl");
+  });
+
+  content.querySelectorAll("p").forEach((element) => {
+    element.classList.add("lg:leading-7");
+  });
+
+  content.querySelectorAll("a").forEach((element) => {
+    element.style.textDecoration = "underline";
+  });
+</script>
