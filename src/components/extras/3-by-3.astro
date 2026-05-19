@@ -15,12 +15,12 @@ const { title, category, col = 3 } = Astro.props;
 ---
 
 <Entry title={title} dataCategory={category}>
-  <div class="aspect-square w-auto h-auto bg-gray-200 flex flex-row flex-wrap">
+  <div class="aspect-square w-auto bg-gray-200 flex flex-row flex-wrap">
     {
       json[category].map((entry) => (
         <div
           style={`background-image: url('${entry.image}'); width: ${100 / col}%`}
-          class="entry bg-cover hover:scale-110 transition-all aspect-square"
+          class="entry bg-cover transition-all aspect-square hover:scale-110"
         />
       ))
     }

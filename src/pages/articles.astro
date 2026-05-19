@@ -10,7 +10,7 @@ type Frontmatter = {
 };
 
 const allPosts = Object.values(
-  import.meta.glob<MarkdownInstance<Frontmatter>>("./posts/*.md", {
+  import.meta.glob<MarkdownInstance<Frontmatter>>("./articles/*.md", {
     eager: true,
   }),
 );
@@ -52,7 +52,7 @@ function getDateStr(date: Date) {
       </h1>
       {
         allPosts.map((post) => (
-          <div class="w-auto flex flex-col gap-2 shadow-2xl p-4">
+          <div class="w-auto flex flex-col gap-2 shadow-2xl p-4 hover:outline-1">
             <a
               href={post.url}
               class="text-xl font-bold w-fit pr-2 py-1 hover:bg-primary hover:text-secondary "
